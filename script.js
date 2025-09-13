@@ -1,6 +1,9 @@
 (function () {
   const doc = document.documentElement;
   const themeToggleButton = document.getElementById('themeToggle');
+  const hamburgerButton = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+  const navOverlay = document.getElementById('navOverlay');
   const yearEl = document.getElementById('year');
   const galleryGrid = document.getElementById('galleryGrid');
 
@@ -24,6 +27,32 @@
     const next = doc.classList.contains('dark') ? 'light' : 'dark';
     localStorage.setItem('theme', next);
     applyTheme(next);
+  }
+
+  function toggleMenu() {
+    const isActive = hamburgerButton.classList.contains('active');
+    
+    if (isActive) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  function openMenu() {
+    hamburgerButton.classList.add('active');
+    hamburgerButton.setAttribute('aria-expanded', 'true');
+    nav.classList.add('active');
+    if (navOverlay) navOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    hamburgerButton.classList.remove('active');
+    hamburgerButton.setAttribute('aria-expanded', 'false');
+    nav.classList.remove('active');
+    if (navOverlay) navOverlay.classList.remove('active');
+    document.body.style.overflow = '';
   }
 
   function setYear() {
@@ -60,9 +89,62 @@
     galleryGrid.appendChild(fragment);
   }
 
+  // Event Listeners
+  if (themeToggleButton) {
+    themeToggleButton.addEventListener('click', toggleTheme);
+  }
+
+  if (hamburgerButton) {
+    hamburgerButton.addEventListener('click', toggleMenu);
+  }
+
+  // Close menu when clicking on nav links
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close menu when clicking outside or on overlay
+  if (navOverlay) {
+    navOverlay.addEventListener('click', closeMenu);
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !hamburgerButton.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // Close menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMenu();
+    }
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024) {
+      closeMenu();
+    }
+  });
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
   // Init
   applyTheme(loadTheme());
   setYear();
-  if (themeToggleButton) themeToggleButton.addEventListener('click', toggleTheme);
   renderGallery();
 })();

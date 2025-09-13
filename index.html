@@ -14,14 +14,28 @@
             <img class="logo" src="assets/logo.svg" alt="BCS logo">
             <span class="brand-text">BCS</span>
         </a>
-        <nav class="nav">
-            <a class="nav-link" href="#top">Home</a>
-            <a class="nav-link" href="#message">Message</a>
-            <a class="nav-link" href="#blog">Blog</a>
-            <a class="nav-link" href="#charity">Charity</a>
-            <a class="nav-link" href="#gallery">More Pictures</a>
-            <button id="themeToggle" class="btn" aria-label="Toggle theme">🌙</button>
+        
+        <div class="header-controls">
+            <button id="themeToggle" class="btn theme-toggle" aria-label="Toggle theme">🌙</button>
+            <button id="hamburger" class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        
+        <nav class="nav" id="nav">
+            <div class="nav-content">
+                <a class="nav-link" href="#top">Home</a>
+                <a class="nav-link" href="#message">Message</a>
+                <a class="nav-link" href="#blog">Blog</a>
+                <a class="nav-link" href="#charity">Charity</a>
+                <a class="nav-link" href="#gallery">More Pictures</a>
+            </div>
         </nav>
+        
+        <!-- Navigation Overlay -->
+        <div class="nav-overlay" id="navOverlay"></div>
     </header>
 
     <main class="container" id="top">
@@ -96,11 +110,13 @@
     </main>
 
     <footer class="site-footer">
-        <div class="footer-brand">
-            <img class="logo small" src="assets/logo.svg" alt="BCS logo">
-            <strong>BCS</strong>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img class="logo small" src="assets/logo.svg" alt="BCS logo">
+                <strong>BCS</strong>
+            </div>
+            <small>© <span id="year"></span> BCS Tribute</small>
         </div>
-        <small>© <span id="year"></span> BCS Tribute</small>
     </footer>
 
     <script src="script.js"></script>
