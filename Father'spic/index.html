@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BCS Tribute</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="preload" as="image" href="IMG_9213.JPG">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="#top" aria-label="BCS Home">
+            <img class="logo" src="assets/logo.svg" alt="BCS logo">
+            <span class="brand-text">BCS</span>
+        </a>
+        <nav class="nav">
+            <a class="nav-link" href="#top">Home</a>
+            <a class="nav-link" href="#message">Message</a>
+            <a class="nav-link" href="#blog">Blog</a>
+            <a class="nav-link" href="#charity">Charity</a>
+            <a class="nav-link" href="#gallery">More Pictures</a>
+            <button id="themeToggle" class="btn" aria-label="Toggle theme">🌙</button>
+        </nav>
+    </header>
+
+    <main class="container" id="top">
+        <section class="hero" id="hero">
+            <div class="hero-media">
+                <img src="IMG_9213.JPG" alt="Beloved father" loading="eager">
+            </div>
+            <div class="hero-copy">
+                <h1>With Love to Our Children</h1>
+                <p class="lede">A humble message of guidance and unity from BCS.</p>
+                <div class="actions">
+                    <a href="#message" class="btn primary">Read Message</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery">
+            <h2>More Pictures</h2>
+            <div class="grid" id="galleryGrid"></div>
+        </section>
+
+        <section id="blog" class="blog">
+            <h2>Blog</h2>
+            <div class="posts">
+                <article class="post">
+                    <h3>On Faith and Daily Living</h3>
+                    <p>Faith is a practice of love in action: listening, forgiving, and serving. In
+                        quiet acts of kindness we become living messages of hope.</p>
+                    <a href="#" class="read">Read more</a>
+                </article>
+                <article class="post">
+                    <h3>Prayer That Builds Peace</h3>
+                    <p>True prayer changes the one who prays. It makes room for peace, patience,
+                        and wisdom in our relationships.</p>
+                    <a href="#" class="read">Read more</a>
+                </article>
+                <article class="post">
+                    <h3>Walking Together</h3>
+                    <p>We grow stronger when we carry one another’s burdens and celebrate each
+                        other’s victories.</p>
+                    <a href="#" class="read">Read more</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="charity" class="charity">
+            <h2>Charity</h2>
+            <div class="charity-grid">
+                <div class="charity-media">
+                    <img src="download.jpeg" alt="People giving to children">
+                </div>
+                <div class="charity-copy">
+                    <p>
+                        Love is generous. Join us in supporting children in need with food, books,
+                        and opportunities to thrive. Your kindness can change a life today.
+                    </p>
+                    <div class="actions">
+                        <a href="#" class="btn primary">Give Support</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="message" class="message">
+            <h2>Father's Address to His Children</h2>
+            <p>
+                My beloved children, walk in love, honor your maker, and care for one another. 
+                Be truthful, patient, and diligent; let peace guide your decisions and unity guard your home. 
+                Keep learning, stay humble, and remember that kindness is true strength.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-brand">
+            <img class="logo small" src="assets/logo.svg" alt="BCS logo">
+            <strong>BCS</strong>
+        </div>
+        <small>© <span id="year"></span> BCS Tribute</small>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
